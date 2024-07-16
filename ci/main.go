@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"time"
 
 	"github.com/openmeterio/openmeter/ci/internal/dagger"
 )
@@ -90,6 +91,7 @@ func (m *Ci) Test() *dagger.Container {
 		Container().
 		WithServiceBinding("postgres", postgres()).
 		WithEnvVariable("POSTGRES_HOST", "postgres").
+		WithEnvVariable("CACHE_BUST", time.Now().String()).
 		WithExec([]string{"go", "test", "-v", "./..."})
 }
 
