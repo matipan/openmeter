@@ -164,7 +164,7 @@ jobs:
 
   dagger:
     name: CI
-    runs-on: ${{ github.actor == 'dependabot[bot]' && 'ubuntu-latest' || 'ubuntu-latest-large' }}
+    runs-on: 'ubuntu-latest'
 
     steps:
       # Required as a workaround for Dagger to properly detect Git metadata
